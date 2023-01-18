@@ -12,13 +12,13 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import axios from "axios";
 import ScheduledModal from "../ScheduledModal/ScheduledModal";
 import { toast } from "react-hot-toast";
-const storedToken = localStorage.getItem("token");
-const token = JSON.parse(storedToken);
 
 const serverImages = process.env.REACT_APP_PUBLIC_IMAGES;
 const serverStatic = process.env.REACT_APP_STATIC_FOLDER;
 
 const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
+  const storedToken = localStorage.getItem("token");
+  const token = JSON.parse(storedToken);
   const [image, setImage] = useState(null);
   const [video, setVideo] = useState(null);
   const [openSchedule, setOpenSchedule] = useState(false);
