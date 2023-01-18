@@ -60,21 +60,20 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
       scheduledDate: scheduledDate,
     };
     if (image) {
-      if(!(image.type==="image/jpeg" || 
-         image.type==="image/png" ||
-         image.type==="image/webp"||
-         image.type==="image/jpg")
-         )
-         {
-          return toast("oops! only support jpeg,png,jpg",{
-            icon: "🙄",
-            style: {
-              borderRadius: "10px",
-              background: "#333",
-              color: "#fff",
-            },
-          });
-         }
+      if (!(image.type === "image/jpeg" ||
+        image.type === "image/png" ||
+        image.type === "image/webp" ||
+        image.type === "image/jpg")
+      ) {
+        return toast("oops! only support jpeg,png,jpg", {
+          icon: "🙄",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }
 
       const data = new FormData();
       const fileName = Date.now() + image.name;
@@ -87,7 +86,7 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
           data,
           {
             withCredentials: true,
-            headers: `Bearer ${token}`,
+            headers: { Authorization: `Bearer ${token}` },
             onUploadProgress: (uploadEvent) =>
               setUploading(
                 parseInt(
@@ -113,7 +112,7 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
           data,
           {
             withCredentials: true,
-            headers: `Bearer ${token}`,
+            headers: { Authorization: `Bearer ${token}` },
             onUploadProgress: (uploadEvent) =>
               setUploading(
                 parseInt(
