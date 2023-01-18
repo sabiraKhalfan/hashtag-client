@@ -45,7 +45,7 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
     setImage(null);
     setVideo(null);
     setUploading(null);
-    setShowLocation(false);
+    
   };
   const handlePostSubmit = async (event) => {
     event.preventDefault();
