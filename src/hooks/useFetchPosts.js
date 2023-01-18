@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-const storedToken = localStorage.getItem("token");
-const token = JSON.parse(storedToken);
 
 const useFetchPosts = (id, isTimeline, skip, location) => {
+  const storedToken = localStorage.getItem("token");
+  const token = JSON.parse(storedToken);
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.authReducer.authData.user._id);
   const [loading, setLoading] = useState(true);
