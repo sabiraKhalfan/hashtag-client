@@ -99,6 +99,7 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
         dispatch(createPost(newPost));
         reset();
       } catch (err) {
+        reset();
         return console.log(err);
       }
     } else if (video) {
@@ -125,6 +126,7 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
         dispatch(createPost(newPost));
         reset();
       } catch (err) {
+        reset();
         return console.log(err);
       }
 
