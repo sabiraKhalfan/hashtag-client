@@ -41,11 +41,11 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
     }
   };
   const reset = () => {
+    setPostDescription("");
     setImage(null);
     setVideo(null);
     setUploading(null);
     setShowLocation(false);
-    setPostDescription("");
   };
   const handlePostSubmit = async (event) => {
     event.preventDefault();
@@ -136,21 +136,6 @@ const PostShare = ({ isScheduling, scheduledDate, closeSchedule }) => {
     }
   };
 
-  const handleSetLocation = () => {
-    navigator?.geolocation?.getCurrentPosition(
-      (position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      },
-      (err) => {
-        console.log(err);
-        if (err.code === 1) {
-          return alert("Please allow location service");
-        }
-      }
-    );
-    setShowLocation((pre) => !pre);
-  };
 
   return (
     <>
